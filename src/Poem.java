@@ -1,3 +1,4 @@
+import java.awt.*;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.IOException;
@@ -49,12 +50,28 @@ public class Poem {
             count++;
         }
 
+        StringBuilder output = new StringBuilder();
+
+        output.append("<html>");
         for(String s :result){
-            System.out.println(s);
+            output.append(s).append("<br><br>");
         }
-        JTextField myOutput = new JTextField("someInitialValue", 20);
-        myOutput.isVisible();
-        myOutput.setVisible(true);
+        output.append("</html>");
+        //
+        JFrame f = new JFrame();
+        f.setTitle("Poem");
+        f.setVisible(true);
+//            f.setSize(300, 300);
+//            f.setLocation(500, 200);
+        f.setBounds(500, 200, 400, 600);
+
+        JLabel label = new JLabel(output.toString());
+        label.setFont(new Font("Serif", Font.BOLD, 18));
+
+        f.add(label);
+
+        f.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        //
     }
 
     /**
