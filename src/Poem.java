@@ -3,20 +3,20 @@ import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Paths;
-import javax.swing.JOptionPane;
+import javax.swing.*;
 import java.util.*;
 
 public class Poem {
     public static void main(String[] args) throws IOException {
+
         int count = 0;
 
-        int[] arr = {1,2,3,4,5,6,7,8};
+        int[] arr = {1, 2, 3, 4, 5, 6, 7, 8};
 
         // ArrayList to store each iteration
         ArrayList<String> result = new ArrayList<>();
 
-        while(count < 8){
-
+        while (count < 8) {
             // Scanner Object to ask user for input
             Scanner sb = new Scanner(System.in);
 
@@ -24,30 +24,37 @@ public class Poem {
             File directoryPath = new File("poems");
             String[] contents = directoryPath.list();
 
+            // Print out the contents of the poem folder
             System.out.println("Which poem would you like to take from?");
-            for(String s : contents){
+            for (String s : contents) {
                 System.out.println(s);
             }
 
+            // Ask the user which poem they want to take from
             String poem = sb.nextLine();
 
+            // Asking the user which line they want to take
             System.out.println("Which line would you like to take from " + poem);
-            System.out.println("Current Lines:");
-            printLines(arr);
 
             int place = sb.nextInt();
 
+            // Printing out the available lines left
             System.out.println("Lines you have left");
             int index = findIndex(arr, place);
             arr = removeTheElement(arr, index);
             printLines(arr);
 
+            // Adding the line to an ArrayList to print out later
             result.add(pickLine(poem, place));
             count++;
         }
-        for(String s : result){
+
+        for(String s :result){
             System.out.println(s);
         }
+        JTextField myOutput = new JTextField("someInitialValue", 20);
+        myOutput.isVisible();
+        myOutput.setVisible(true);
     }
 
     /**
@@ -149,7 +156,7 @@ public class Poem {
      */
     public static void printLines(int[] arr){
         for(int i : arr){
-            System.out.print(i + " ");
+            System.out.print(i + "\t");
         }
         System.out.println();
     }
