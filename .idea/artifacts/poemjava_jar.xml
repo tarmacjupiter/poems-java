@@ -1,0 +1,9 @@
+<component name="ArtifactManager">
+  <artifact type="jar" name="poemjava:jar">
+    <output-path>$PROJECT_DIR$/out/artifacts/poemjava_jar</output-path>
+    <root id="archive" name="poemjava.jar">
+      <element id="module-output" name="poemjava" />
+      <element id="library" level="project" name="openjfx-17.0" />
+    </root>
+  </artifact>
+</component>
